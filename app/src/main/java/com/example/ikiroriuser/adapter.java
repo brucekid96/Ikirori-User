@@ -1,0 +1,70 @@
+package com.example.ikiroriuser;
+
+import android.content.Context;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
+
+public class adapter extends RecyclerView.Adapter<adapter.EventCardHolder> {
+
+    public interface OnDeleteClickListener {
+        void OnDeleteClickListener(Event myEvent);
+    }
+
+
+    private static final String TAG = adapter.class.getSimpleName();
+
+    Context mContext;
+    private List<Event> mEvents;
+    private OnDeleteClickListener onDeleteClickListener;
+    public int mPosition;
+
+
+
+    public adapter(Context context, List<Event> events,OnDeleteClickListener listener) {
+        mContext = context;
+        mEvents = events;
+        onDeleteClickListener = listener;
+
+    }
+
+    void setEvents(List<Event> events) {
+        mEvents = events;
+        notifyDataSetChanged();
+    }
+
+    public class EventCardHolder extends RecyclerView.ViewHolder {
+        public EventCardHolder(EventCard eventcard) {
+            super(eventcard);
+        }
+
+        public EventCard getEventCard() {
+            return (EventCard) itemView;
+        }
+    }
+
+    @Override
+    public EventCardHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        EventCard vHolder = new EventCard(parent.getContext());
+        return new EventCardHolder(vHolder);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull EventCardHolder eventCardHolder, int  position) {
+        eventCardHolder.getEventCard().bindEvent(mEvents.get(position));
+    }
+
+
+    @Override
+    public int getItemCount() {
+        if (mEvents != null)
+            return mEvents.size();
+        else {
+            return 0;
+        }
+    }
+}
