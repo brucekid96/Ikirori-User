@@ -8,37 +8,27 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
-
-public class Events extends Fragment {
-
+public class Explorer extends Fragment
+{
     View v;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private OnFragmentInteractionListener mListener;
-    private List<Event> mEvents;
+    private Events.OnFragmentInteractionListener mListener;
 
-
-
-    private RecyclerView mRecyclerView;
-    private adapter mRecyclerAdapter;
     private String mParam1;
     private String mParam2;
 
-    public Events() {
+    public Explorer() {
 
     }
 
-    public static Events newInstance(String param1, String param2) {
-        Events fragment = new Events();
+    public static Explorer newInstance(String param1, String param2) {
+        Explorer fragment = new Explorer();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,15 +45,7 @@ public class Events extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.events, container, false);
-
-        mRecyclerView =view.findViewById(R.id.draft_recyclerview);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerAdapter = new adapter(getContext(),mEvents,null);
-        mRecyclerView.setAdapter(mRecyclerAdapter);
-
-
-
+        View view = inflater.inflate(R.layout.explorer, container, false);
 
         return view;
     }
@@ -77,8 +59,8 @@ public class Events extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof Events.OnFragmentInteractionListener) {
+            mListener = (Events.OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -94,13 +76,5 @@ public class Events extends Fragment {
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(Uri uri);
     }
-
-
-
-
-
-
-
-
 
 }

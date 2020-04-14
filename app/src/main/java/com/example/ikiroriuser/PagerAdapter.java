@@ -22,8 +22,8 @@ public class PagerAdapter  extends FragmentStatePagerAdapter {
                 Events events = new Events();
                 return events;
             case 1:
-                Trending trending= new Trending();
-                return trending;
+                Explorer explorer = new Explorer();
+                return explorer;
             case 2:
                 Organizers organizers= new Organizers();
                 return organizers;

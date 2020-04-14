@@ -1,6 +1,7 @@
 package com.example.ikiroriuser;
 
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,34 +24,35 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-   
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener,Events.OnFragmentInteractionListener,Explorer.OnFragmentInteractionListener,Organizers.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp);
         setSupportActionBar(toolbar);
 
-        TabLayout tabLayout =(TabLayout) findViewById(R.id.tablayout);
-        tabLayout.addTab(tabLayout.newTab().setText("Live"));
-        tabLayout.addTab(tabLayout.newTab().setText("Past"));
-        tabLayout.addTab(tabLayout.newTab().setText("Draft"));
+        TabLayout tabLayout =findViewById(R.id.tablayout);
+        tabLayout.addTab(tabLayout.newTab().setText("Events"));
+        tabLayout.addTab(tabLayout.newTab().setText("Explorer"));
+        tabLayout.addTab(tabLayout.newTab().setText("Organizers"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FFFFFF"));
-        tabLayout.setTabTextColors(Color.parseColor("#a0d8d2"),
-                Color.parseColor("#FFFFFF"));
+        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#a0d8d2"));
+        tabLayout.setTabTextColors(Color.parseColor("black"),
+                Color.parseColor("#008577"));
 
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        final PagerAdapter adapter = new com.example.ikiroriuser.PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        final ViewPager viewPager =findViewById(R.id.pager);
+        final PagerAdapter adapter = new com.example.ikiroriuser.PagerAdapter(getSupportFragmentManager()
+                , tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
-        viewPager.setOnPageChangeListener
+        viewPager.addOnPageChangeListener
                 (new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
 
-        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
+        DrawerLayout drawer =findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -125,6 +127,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer =findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 
  

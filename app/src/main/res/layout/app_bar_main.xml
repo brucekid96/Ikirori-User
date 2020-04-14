@@ -9,14 +9,18 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:visibility="visible"
+            app:collapseIcon="@drawable/ic_menu_black_24dp"
+            app:navigationIcon="@drawable/ic_menu_black_24dp"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:titleTextColor="#008577" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
