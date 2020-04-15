@@ -12,50 +12,45 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
-
-
-
+public class ExplorerAdapter extends RecyclerView.Adapter<ExplorerAdapter.ViewHolder> {
     private static final String TAG = adapter.class.getSimpleName();
 
     Context mContext;
-    private List<Event>EventList;
-       public int mPosition;
+    private List<Event> EventList;
+    public int mPosition;
 
 
 
-    public adapter(Context context, List<Event> events) {
+    public ExplorerAdapter(Context context, List<Event> events) {
         mContext = context;
         EventList = events;
 
     }
 
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView title,calendar,place,adress,city;
+        public TextView title,calendar,place;
         public ImageView eventImage;
         public ViewHolder(View v) {
             super(v);
             title = v.findViewById(R.id.title_id);
             calendar = v.findViewById(R.id.calendar_id);
             place = v.findViewById(R.id.place_view_id);
-           eventImage = v.findViewById(R.id.card_image);
+            eventImage = v.findViewById(R.id.card_image);
         }
 
     }
 
-
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ExplorerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.eventcard,parent,false);
 
-        ViewHolder vHolder = new ViewHolder(v);
+       ViewHolder vHolder = new ViewHolder(v);
         return vHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int  position) {
+    public void onBindViewHolder(@NonNull ExplorerAdapter.ViewHolder holder, int  position) {
 
         Event event = EventList.get(position);
         holder.title.setText(event.getTitle());
@@ -64,7 +59,6 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
         holder.eventImage.setImageResource(event.getEventImage());
 
     }
-
 
     @Override
     public int getItemCount() {
@@ -75,3 +69,4 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
         }
     }
 }
+

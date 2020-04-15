@@ -9,26 +9,24 @@ public class Event {
 
 
     public static final String EVENT_EXTRA = "event_code";
-    private UUID mId;
+    private int mId;
 
-    private Uri mEventImageUri;
+    private int mEventImage;
     private String mTitle;
     private String mDescription;
-    private Date mStartDate;
-    private Date mEndDate;
+    private String mStartDate;
+    private String mEndDate;
     private String mPlace;
     private String mAddress;
     private String mCity;
-    private String mCategory;
-    private String mPrivacy;
 
 
 
-    public Event(UUID id, Uri eventImageUri, String title, String description, Date startDate,
-                 Date endDate, String city
-            , String address, String place, String category,String privacy) {
+    public Event(int id, int eventImage, String title, String description, String startDate,
+                 String endDate, String city
+            , String address, String place) {
         mId = id;
-        mEventImageUri = eventImageUri;
+        mEventImage = eventImage;
         mTitle = title;
         mDescription = description;
         mStartDate = startDate;
@@ -36,18 +34,16 @@ public class Event {
         mCity = city;
         mPlace = place;
         mAddress = address;
-        mCategory = category;
-        mPrivacy = privacy;
 
     }
 
 
-    public void setEventImageUri(Uri eventImageUri) {
-        mEventImageUri = eventImageUri;
+    public void setEventImageUri(int eventImage) {
+        mEventImage = eventImage;
     }
 
-    public Uri getEventImageUri() {
-        return mEventImageUri;
+    public int getEventImage() {
+        return mEventImage;
     }
 
 
@@ -68,28 +64,28 @@ public class Event {
         mDescription = description;
     }
 
-    public UUID getId() {
+    public int getId() {
         return mId;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.mId = id;
     }
 
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return mStartDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         mStartDate = startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return mEndDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         mEndDate = endDate;
     }
 
@@ -118,23 +114,8 @@ public class Event {
         mAddress = address;
     }
 
-    public String getCategory() {
-        return mCategory;
-    }
-
-    public void setCategory(String category) {
-        mCategory = category;
-    }
 
 
-
-    public String getPrivacy() {
-        return mPrivacy;
-    }
-
-    public void setPrivacy(String privacy) {
-        mPrivacy = privacy;
-    }
 
 
 }

@@ -28,18 +28,20 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
             app:srcCompat="@drawable/secondeventpicture"/>
+
         <TextView
             android:id="@+id/title_id"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="Kigingi Summer Comedy"
             android:textColor="#fff"
             android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toBottomOf="@+id/card_image"/>
+            app:layout_constraintTop_toBottomOf="@+id/card_image" />
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline8"
             android:layout_width="wrap_content"
@@ -49,29 +51,16 @@
 
         <TextView
             android:id="@+id/calendar_id"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
             android:text="Fri, Jun 28 2019 at 11:23"
             android:textColor="#fff"
             android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
             app:layout_constraintTop_toBottomOf="@+id/place_view_id" />
 
-        <TextView
-            android:id="@+id/analytics"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/montserrat_bold"
-            android:textColor="#fff"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:drawableLeftCompat="@drawable/ic_favorite_border_black_24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toBottomOf="@+id/calendar_id" />
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline9"
             android:layout_width="wrap_content"
@@ -79,37 +68,14 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="10dp"/>
 
-        <TextView
-            android:id="@+id/edit_event"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/montserrat_bold"
-            android:text=" I will Be There!"
-            android:textColor="#ffff"
-            app:drawableLeftCompat="@drawable/ic_thumb_up_black_24dp"
-            app:layout_constraintEnd_toStartOf="@+id/more_textview_id"
-            app:layout_constraintStart_toEndOf="@+id/analytics"
-            app:layout_constraintTop_toTopOf="@+id/analytics" />
-
-        <TextView
-            android:id="@+id/more_textview_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_bold"
-            android:textColor="#fff"
-            app:drawableLeftCompat="@drawable/ic_share_black_24dp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline9"
-            app:layout_constraintTop_toTopOf="@+id/analytics" />
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/place_view_id"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
             android:text="Odéon Palace"
             android:textColor="#fff"
+            app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
             app:layout_constraintTop_toBottomOf="@+id/title_id" />
 

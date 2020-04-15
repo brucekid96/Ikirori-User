@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Events extends Fragment {
@@ -19,10 +20,7 @@ public class Events extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private OnFragmentInteractionListener mListener;
-    private List<Event> mEvents;
-
-
-
+    private List<Event>EventList;
     private RecyclerView mRecyclerView;
     private adapter mRecyclerAdapter;
     private String mParam1;
@@ -59,9 +57,65 @@ public class Events extends Fragment {
 
         mRecyclerView =view.findViewById(R.id.draft_recyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerAdapter = new adapter(getContext(),mEvents,null);
+        mRecyclerAdapter = new adapter(getContext(),EventList);
         mRecyclerView.setAdapter(mRecyclerAdapter);
+        mRecyclerView.setHasFixedSize(true);
+        EventList = new ArrayList<>();
 
+        EventList.add(
+                new Event(1,R.drawable.eventpicture,"concert show","it will be hot",
+                        "Fri, Jun 28 2019 at 11:23","Fri, Jun 28 2019 at 19:23","Bujumbura",
+                        "Avenue Bwiza, Number 36","Odéon Palace")
+                );
+        EventList.add(
+                new Event(2,R.drawable.eventpicture,"concert show","it will be hot",
+                        "Fri, Jun 28 2019 at 11:23","Fri, Jun 28 2019 at 19:23","Bujumbura",
+                        "Avenue Bwiza, Number 36","Odéon Palace")
+        );
+        EventList.add(
+                new Event(3,R.drawable.eventpicture,"concert show","it will be hot",
+                        "Fri, Jun 28 2019 at 11:23","Fri, Jun 28 2019 at 19:23","Bujumbura",
+                        "Avenue Bwiza, Number 36","Odéon Palace")
+        );
+        EventList.add(
+                new Event(4,R.drawable.eventpicture,"concert show","it will be hot",
+                        "Fri, Jun 28 2019 at 11:23","Fri, Jun 28 2019 at 19:23","Bujumbura",
+                        "Avenue Bwiza, Number 36","Odéon Palace")
+        );
+        EventList.add(
+                new Event(5,R.drawable.eventpicture,"concert show","it will be hot",
+                        "Fri, Jun 28 2019 at 11:23","Fri, Jun 28 2019 at 19:23","Bujumbura",
+                        "Avenue Bwiza, Number 36","Odéon Palace")
+        );
+        EventList.add(
+                new Event(6,R.drawable.eventpicture,"concert show","it will be hot",
+                        "Fri, Jun 28 2019 at 11:23","Fri, Jun 28 2019 at 19:23","Bujumbura",
+                        "Avenue Bwiza, Number 36","Odéon Palace")
+        );
+        EventList.add(
+                new Event(7,R.drawable.eventpicture,"concert show","it will be hot",
+                        "Fri, Jun 28 2019 at 11:23","Fri, Jun 28 2019 at 19:23","Bujumbura",
+                        "Avenue Bwiza, Number 36","Odéon Palace")
+        );
+        EventList.add(
+                new Event(8,R.drawable.eventpicture,"concert show","it will be hot",
+                        "Fri, Jun 28 2019 at 11:23","Fri, Jun 28 2019 at 19:23","Bujumbura",
+                        "Avenue Bwiza, Number 36","Odéon Palace")
+        );
+        EventList.add(
+                new Event(9,R.drawable.eventpicture,"concert show","it will be hot",
+                        "Fri, Jun 28 2019 at 11:23","Fri, Jun 28 2019 at 19:23","Bujumbura",
+                        "Avenue Bwiza, Number 36","Odéon Palace")
+        );
+        EventList.add(
+                new Event(10,R.drawable.eventpicture,"concert show","it will be hot",
+                        "Fri, Jun 28 2019 at 11:23","Fri, Jun 28 2019 at 19:23","Bujumbura",
+                        "Avenue Bwiza, Number 36","Odéon Palace")
+        );
+
+
+     mRecyclerAdapter = new adapter(getContext(),EventList);
+     mRecyclerView.setAdapter(mRecyclerAdapter);
 
 
 

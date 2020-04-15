@@ -21,11 +21,19 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,Events.OnFragmentInteractionListener,Explorer.OnFragmentInteractionListener,Organizers.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener
+        ,Events.OnFragmentInteractionListener,Explorer.OnFragmentInteractionListener,Organizers.OnFragmentInteractionListener {
+    private List<Event>EventList;
+    private adapter EventAdapter;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +42,8 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp);
         setSupportActionBar(toolbar);
+
+
 
         TabLayout tabLayout =findViewById(R.id.tablayout);
         tabLayout.addTab(tabLayout.newTab().setText("Events"));
