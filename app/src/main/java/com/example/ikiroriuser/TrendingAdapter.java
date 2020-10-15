@@ -12,20 +12,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class ExplorerAdapter extends RecyclerView.Adapter<ExplorerAdapter.ViewHolder> {
+public class TrendingAdapter  extends RecyclerView.Adapter<TrendingAdapter.ViewHolder> {
     private static final String TAG = ExplorerAdapter.class.getSimpleName();
 
     Context mContext;
     private List<Event> EventList;
-    private List<Organizer>OrganizerList;
+    private List<Organizers>OrganizersList;
     public int mPosition;
 
 
 
-    public ExplorerAdapter(Context context, List<Event> events,List<Organizer>organizers) {
+    public TrendingAdapter(Context context, List<Event> events) {
         mContext = context;
         EventList = events;
-        OrganizerList = organizers;
 
 
     }
@@ -44,16 +43,16 @@ public class ExplorerAdapter extends RecyclerView.Adapter<ExplorerAdapter.ViewHo
     }
 
     @Override
-    public ExplorerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TrendingAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.eventcard,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.explorercard,parent,false);
 
-       ViewHolder vHolder = new ViewHolder(v);
+        TrendingAdapter.ViewHolder vHolder = new TrendingAdapter.ViewHolder(v);
         return vHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ExplorerAdapter.ViewHolder holder, int  position) {
+    public void onBindViewHolder(@NonNull TrendingAdapter.ViewHolder holder, int  position) {
 
         Event event = EventList.get(position);
         holder.title.setText(event.getTitle());

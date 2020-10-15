@@ -12,22 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class ExplorerAdapter extends RecyclerView.Adapter<ExplorerAdapter.ViewHolder> {
-    private static final String TAG = ExplorerAdapter.class.getSimpleName();
+public class EventNearAdapter extends RecyclerView.Adapter<EventNearAdapter.ViewHolder> {
+
+    private static final String TAG = EventNearAdapter.class.getSimpleName();
 
     Context mContext;
-    private List<Event> EventList;
-    private List<Organizer>OrganizerList;
-    public int mPosition;
+    private List<Event> EventNearList;
 
 
 
-    public ExplorerAdapter(Context context, List<Event> events,List<Organizer>organizers) {
+    public EventNearAdapter(Context context,List<Event>events) {
         mContext = context;
-        EventList = events;
-        OrganizerList = organizers;
-
-
+        EventNearList = events;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -43,19 +39,20 @@ public class ExplorerAdapter extends RecyclerView.Adapter<ExplorerAdapter.ViewHo
 
     }
 
+
     @Override
-    public ExplorerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public EventNearAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.eventcard,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.explorercard,parent,false);
 
-       ViewHolder vHolder = new ViewHolder(v);
+        EventNearAdapter.ViewHolder vHolder = new EventNearAdapter.ViewHolder(v);
         return vHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ExplorerAdapter.ViewHolder holder, int  position) {
+    public void onBindViewHolder(@NonNull EventNearAdapter.ViewHolder holder, int  position) {
 
-        Event event = EventList.get(position);
+        Event event = EventNearList.get(position);
         holder.title.setText(event.getTitle());
         holder.calendar.setText(event.getStartDate());
         holder.place.setText(event.getPlace());
@@ -65,11 +62,11 @@ public class ExplorerAdapter extends RecyclerView.Adapter<ExplorerAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        if (EventList != null)
-            return EventList.size();
+        if (EventNearList != null)
+            return EventNearList.size();
         else {
             return 0;
         }
     }
-}
 
+}
